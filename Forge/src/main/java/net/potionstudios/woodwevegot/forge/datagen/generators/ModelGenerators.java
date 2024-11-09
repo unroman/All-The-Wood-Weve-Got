@@ -5,8 +5,6 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.BarrelBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LadderBlock;
@@ -21,43 +19,6 @@ public class ModelGenerators {
 
     public static void init(DataGenerator generator, boolean run, PackOutput output, ExistingFileHelper exFileHelper) {
         generator.addProvider(run, new BlockModelGenerators(output, exFileHelper));
-        generator.addProvider(run, new ItemModelGenerators(output, exFileHelper));
-    }
-
-    /**
-     * Used to generate models for items.
-     * @see ItemModelProvider
-     */
-    private static class ItemModelGenerators extends ItemModelProvider {
-
-        private ItemModelGenerators(PackOutput output, ExistingFileHelper existingFileHelper) {
-            super(output, WoodWeveGot.MOD_ID, existingFileHelper);
-        }
-
-        @Override
-        protected void registerModels() {
-            WWGWoodSet.getWoodSets().forEach(set -> {
-                try {
-                    simpleItemBlockTexture(set.name(), set.ladder());
-                } catch (Exception ignored) {}
-            });
-        }
-
-        private ResourceLocation woodBlockTexture(String type, String name) {
-            return WoodWeveGot.id(ModelProvider.BLOCK_FOLDER + "/" + type + "/" + name);
-        }
-
-        private void simpleItemBlockTexture(String set, ItemLike item) {
-            singleTexture(name(item), mcLoc("item/generated"), "layer0", WoodWeveGot.id(ModelProvider.BLOCK_FOLDER + "/" + set + "/" + name(item).replace(set + "_", "")));
-        }
-
-        private String name(ItemLike item) {
-            return key(item.asItem()).getPath();
-        }
-
-        private ResourceLocation key(Item item) {
-            return ForgeRegistries.ITEMS.getKey(item);
-        }
     }
 
     /**
@@ -87,6 +48,7 @@ public class ModelGenerators {
                             return ConfiguredModel.builder().modelFile(modelFile).rotationY(270).build();
                         else return ConfiguredModel.builder().modelFile(modelFile).build();
                     }, LadderBlock.WATERLOGGED);
+                    itemModels().singleTexture(name(set.ladder()), mcLoc("item/generated"), "layer0", woodBlockTexture(set.name(), "ladder"));
                 }
                 if (models().existingFileHelper.exists(woodBlockTextureFolder(set.name(), "barrel_top"), PackType.CLIENT_RESOURCES)) {
                     ModelFile modelFile = models().cubeBottomTop(name(set.barrel()), woodBlockTexture(set.name(), "barrel_side"), woodBlockTexture(set.name(), "barrel_bottom"), woodBlockTexture(set.name(), "barrel_top"));
@@ -110,15 +72,6 @@ public class ModelGenerators {
                 itemModels().withExistingParent(name(set.trappedChest()), WoodWeveGot.id("item/" + name(set.chest())));
                 simpleBlock(set.trappedChest(), models().sign(name(set.trappedChest()), woodBlockTextureBWG(set.name(), "planks")));
             });
-        }
-
-        private ConfiguredModel[] createRotatedModels(ModelFile model) {
-            return ConfiguredModel.builder()
-                    .modelFile(model)
-                    .nextModel().modelFile(model).rotationY(90)
-                    .nextModel().modelFile(model).rotationY(180)
-                    .nextModel().modelFile(model).rotationY(270)
-                    .build();
         }
 
         private ResourceLocation woodBlockTexture(String type, String name) {
