@@ -31,6 +31,6 @@ side = "BOTH"
 [[dependencies.woodwevegot]]
 modId = "biomeswevegone"
 mandatory = true
-versionRange = "[1.2.4,)"
+versionRange = "[1.4.2,)"
 ordering = "AFTER"
 side = "BOTH"
