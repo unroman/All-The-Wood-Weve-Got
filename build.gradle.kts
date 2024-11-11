@@ -106,7 +106,7 @@ subprojects {
             displayName.set(base.archivesName.get() + "-${project.version}")
             artifact.set(project.tasks.getByName("remapJar"))
             projectVersion.set(project.version.toString() + "-${project.name}")
-            changelog.set(projectDir.toPath().parent.resolve("CHANGELOG.md").toFile().readText())
+            changelog.set(projectDir.toPath().parent.resolve("CHANGELOG.md").toFile().readLines().take(100).joinToString("\n"))
             curseID.set("")
             modrinthID.set("qvq8iHWh")
             githubRepo.set("https://github.com/Potion-Studios/All-The-Wood-Weve-Got")
