@@ -1,4 +1,7 @@
 # All The Wood We've Got
+### By Potion Studios
+
+![img.png](Common/src/main/resources/WWG.png)
 
 ### Official Downloads
 * Curseforge: https://www.curseforge.com/minecraft/mc-mods/all-the-wood-weve-got
