@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "woodwevegot:block/witch_hazel/barrel_bottom",
+    "side": "woodwevegot:block/witch_hazel/barrel_side",
+    "top": "woodwevegot:block/witch_hazel/barrel_top"
+  }
+}

@@ -13,7 +13,7 @@
     "sources": "https://github.com/Potion-Studios/All-The-Wood-Weve-Got"
   },
   "license": "All Rights Reserved",
-  "icon": "assets/examplemod/icon.png",
+  "icon": "WWG.png",
   "environment": "*",
   "entrypoints": {
     "main": [

@@ -12,7 +12,7 @@ description = '''
 Adds wood variants like chests, ladders, and barrels based on BWG wood
 '''
 displayURL="https://potionstudios.net/"
-#logoFile = ""
+logoFile = "WWG.png"
 
 [[dependencies.woodwevegot]]
 modId = "forge"

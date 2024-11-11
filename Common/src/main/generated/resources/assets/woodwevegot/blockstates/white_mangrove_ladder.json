@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "woodwevegot:block/white_mangrove_ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "woodwevegot:block/white_mangrove_ladder"
+    },
+    "facing=south": {
+      "model": "woodwevegot:block/white_mangrove_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "woodwevegot:block/white_mangrove_ladder",
+      "y": 270
+    }
+  }
+}

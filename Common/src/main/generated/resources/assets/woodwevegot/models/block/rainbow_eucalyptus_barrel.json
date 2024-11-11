@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "woodwevegot:block/rainbow_eucalyptus/barrel_bottom",
+    "side": "woodwevegot:block/rainbow_eucalyptus/barrel_side",
+    "top": "woodwevegot:block/rainbow_eucalyptus/barrel_top"
+  }
+}
