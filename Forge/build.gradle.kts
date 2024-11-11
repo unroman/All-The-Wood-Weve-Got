@@ -77,7 +77,7 @@ tasks {
     }
 
     shadowJar {
-        exclude("net/potionstudios/woodwevegot/forge/datagen/**", "architectury.common.json")
+        exclude("net/potionstudios/woodwevegot/forge/datagen/**", "architectury.common.json", ".cache/**")
         configurations = listOf(project.configurations.getByName("shadowBundle"))
         archiveClassifier.set("dev-shadow")
     }

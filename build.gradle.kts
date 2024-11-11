@@ -108,15 +108,15 @@ subprojects {
             projectVersion.set(project.version.toString() + "-${project.name}")
             changelog.set(projectDir.toPath().parent.resolve("CHANGELOG.md").toFile().readText())
             curseID.set("")
-            modrinthID.set("")
+            modrinthID.set("qvq8iHWh")
             githubRepo.set("https://github.com/Potion-Studios/All-The-Wood-Weve-Got")
             setReleaseType(ReleaseType.ALPHA)
             setGameVersions(minecraftVersion)
             setCurseEnvironment(CurseEnvironment.BOTH)
             setJavaVersions(JavaVersion.VERSION_17, JavaVersion.VERSION_18, JavaVersion.VERSION_19, JavaVersion.VERSION_20, JavaVersion.VERSION_21, JavaVersion.VERSION_22)
-            val softDepends = mutableListOf("oh-the-biomes-weve-gone")
-            curseDepends.required.set(softDepends)
-            modrinthDepends.required.set(softDepends)
+            val depends = mutableListOf("oh-the-biomes-weve-gone")
+            curseDepends.required.set(depends)
+            modrinthDepends.required.set(depends)
         }
 }
 
