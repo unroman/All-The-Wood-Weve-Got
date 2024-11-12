@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class WWGBarrelBlock extends BarrelBlock {
 	public WWGBarrelBlock() {
-		super(Properties.copy(Blocks.BARREL));
+		super(Properties.ofFullCopy(Blocks.BARREL));
 	}
 
 	@Override

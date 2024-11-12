@@ -15,4 +15,9 @@ public class WWGBarrelBlockEntity extends BarrelBlockEntity {
 	public @NotNull BlockEntityType<?> getType() {
 		return WWGBlockEntities.BARREL.get();
 	}
+
+	@Override
+	public boolean isValidBlockState(@NotNull BlockState blockState) {
+		return this.getType().isValid(blockState);
+	}
 }

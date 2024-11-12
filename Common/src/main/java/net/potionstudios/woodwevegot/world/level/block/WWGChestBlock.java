@@ -17,7 +17,7 @@ public class WWGChestBlock extends ChestBlock {
 	private final String set;
 
 	protected WWGChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> blockEntityType, String set) {
-		super(Properties.copy(Blocks.CHEST), blockEntityType);
+		super(Properties.ofFullCopy(Blocks.CHEST), blockEntityType);
 		this.set = set;
 	}
 	protected WWGChestBlock(String set) {
