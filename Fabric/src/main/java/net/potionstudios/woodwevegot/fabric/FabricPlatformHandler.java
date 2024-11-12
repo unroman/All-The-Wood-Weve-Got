@@ -31,8 +31,7 @@ public class FabricPlatformHandler implements PlatformHandler {
 	@Override
 	public <T extends BlockEntity> Supplier<BlockEntityType<T>> registerBlockEntity(String key, Supplier<BlockEntityType.Builder<T>> builder) {
 		ResourceLocation resourceLocation = WoodWeveGot.id(key);
-		BlockEntityType<T> blockEntity = builder.get().build(Util.fetchChoiceType(References.BLOCK_ENTITY, resourceLocation.toString()));
-		Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, resourceLocation, blockEntity);
+		BlockEntityType<T> blockEntity = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, resourceLocation, builder.get().build(Util.fetchChoiceType(References.BLOCK_ENTITY, resourceLocation.toString())));
 		return () -> blockEntity;
 	}
 
