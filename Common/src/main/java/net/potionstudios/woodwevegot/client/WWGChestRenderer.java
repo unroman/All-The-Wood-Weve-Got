@@ -104,7 +104,7 @@ public class WWGChestRenderer extends ChestRenderer<WWGChestBlockEntity> {
 		bottomPart.render(poseStack, consumer, packedLight, packedOverlay);
 	}
 
-	public static Material chooseMaterial(ChestType type, Material left, Material right, Material single) {
+	private static Material chooseMaterial(ChestType type, Material left, Material right, Material single) {
 		return switch (type) {
 			case LEFT -> left;
 			case RIGHT -> right;
@@ -122,7 +122,7 @@ public class WWGChestRenderer extends ChestRenderer<WWGChestBlockEntity> {
 				getChestPath(set, "normal_right"), getChestPath(set, "normal"));
 	}
 
-	public static Material getChestPath(String set, String type) {
+	private static Material getChestPath(String set, String type) {
 		return new Material(Sheets.CHEST_SHEET, WoodWeveGot.id("entity/chest/" + set + "/" + type));
 	}
 }
