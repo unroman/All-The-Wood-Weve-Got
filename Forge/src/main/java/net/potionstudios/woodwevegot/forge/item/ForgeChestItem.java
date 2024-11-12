@@ -19,11 +19,8 @@ import java.util.function.Supplier;
 
 public class ForgeChestItem extends ForgeBlockItem {
 
-	private final Supplier<? extends Block> block;
-
 	public ForgeChestItem(Supplier<? extends Block> block, Properties properties) {
 		super(block, properties, 300);
-		this.block = block;
 	}
 
 	@Override
@@ -35,9 +32,9 @@ public class ForgeChestItem extends ForgeBlockItem {
 				return new BlockEntityWithoutLevelRenderer(Minecraft.getInstance().getBlockEntityRenderDispatcher(), Minecraft.getInstance().getEntityModels()) {
 					@Override
 					public void renderByItem(@NotNull ItemStack stack, @NotNull ItemDisplayContext displayContext, @NotNull PoseStack poseStack, @NotNull MultiBufferSource buffer, int packedLight, int packedOverlay) {
-						if (block.get() instanceof WWGTrappedChestBlock)
-							Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(new WWGTrappedChestBlockEntity(BlockPos.ZERO, block.get().defaultBlockState()), poseStack, buffer, packedLight, packedOverlay);
-						else Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(new WWGChestBlockEntity(BlockPos.ZERO, block.get().defaultBlockState()), poseStack, buffer, packedLight, packedOverlay);
+						if (getBlock() instanceof WWGTrappedChestBlock)
+							Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(new WWGTrappedChestBlockEntity(BlockPos.ZERO, getBlock().defaultBlockState()), poseStack, buffer, packedLight, packedOverlay);
+						else Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(new WWGChestBlockEntity(BlockPos.ZERO, getBlock().defaultBlockState()), poseStack, buffer, packedLight, packedOverlay);
 					}
 				};
 			}
