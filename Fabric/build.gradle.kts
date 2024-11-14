@@ -75,6 +75,6 @@ tasks {
 
 publisher {
     setLoaders(ModLoader.FABRIC, ModLoader.QUILT)
-    curseDepends.required.set(mutableListOf("fabric-api"))
-    modrinthDepends.required.set(mutableListOf("fabric-api"))
+    curseDepends.required.add("fabric-api")
+    modrinthDepends.required.add("fabric-api")
 }
